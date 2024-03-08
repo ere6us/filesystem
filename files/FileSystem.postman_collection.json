@@ -1,0 +1,343 @@
+{
+	"info": {
+		"_postman_id": "afda94c7-d8e4-40e9-a25f-55e38d0fa4e5",
+		"name": "FileSystem",
+		"description": "API collection for a quick dropwizard like file system",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19733155"
+	},
+	"item": [
+		{
+			"name": "Get All Files",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/files",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"files"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get All Files",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/files",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"files"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 08 Mar 2024 22:21:18 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": {{fileId}},\n        \"name\": \"bruce_wayne.jpeg\",\n        \"type\": \"image/jpeg\",\n        \"size\": 17810,\n        \"path\": \"/Users/atif.md/Desktop/File_Storage/bruce_wayne.jpeg\",\n        \"createdAt\": 1709936473571\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Upload a file",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/Users/atif.md/Downloads/bruce_wayne.jpeg"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8080/files/upload",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"files",
+						"upload"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Upload a file",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/Users/atif.md/Downloads/bruce_wayne.jpeg"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8080/files/upload",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"files",
+								"upload"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain;charset=UTF-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "59"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 08 Mar 2024 22:21:13 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "File uploaded with id: {{fileId}}"
+				}
+			]
+		},
+		{
+			"name": "Get file by Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/files/{{fileId}}",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"files",
+						"{{fileId}}"
+					]
+				},
+				"description": "Media type responses can't be saved"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete file by Id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/files/{{fileId}}",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"files",
+						"{{fileId}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Delete file by Id",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/files/{{fileId}}",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"files",
+								"{{fileId}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain;charset=UTF-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "58"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 08 Mar 2024 22:23:08 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "File deleted with id: {{fileId}}"
+				}
+			]
+		},
+		{
+			"name": "Update file by Id",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"description": "binary file to update for the input file id",
+							"type": "file",
+							"src": "/Users/atif.md/Downloads/the_batman.jpeg"
+						},
+						{
+							"key": "name",
+							"value": "dark_knight",
+							"description": "this input name is preferred over the original file name.",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8080/files/{{fileId}}",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"files",
+						"{{fileId}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Update file by Id",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"description": "binary file to update for the input file id",
+									"type": "file",
+									"src": "/Users/atif.md/Downloads/the_batman.jpeg"
+								},
+								{
+									"key": "name",
+									"value": "dark_knight",
+									"description": "this input name is preferred over the original file name.",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8080/files/{{fileId}}",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"files",
+								"{{fileId}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain;charset=UTF-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "58"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 08 Mar 2024 22:21:52 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "File updated with id: {{fileId}}"
+				}
+			]
+		}
+	]
+}
