@@ -14,7 +14,7 @@ public class FileResource {
     @Autowired
     IFileService fileService;
 
-    @GetMapping(produces = "application/json")
+    @GetMapping()
     public ResponseEntity<?> getAllFiles() {
         try {
             return fileService.getAllFiles();
@@ -29,7 +29,7 @@ public class FileResource {
         }
     }
 
-    @PostMapping(value = "/upload", consumes = "multipart/form-data", produces = "application/json")
+    @PostMapping(value = "/upload", consumes = "multipart/form-data")
     public ResponseEntity<?> uploadFile(@RequestParam("file") MultipartFile file) {
         try {
             return fileService.upload(file);
@@ -59,7 +59,7 @@ public class FileResource {
         }
     }
 
-    @PutMapping(value = "/{fileId}", consumes = "multipart/form-data", produces = "application/json")
+    @PutMapping(value = "/{fileId}", consumes = "multipart/form-data")
     public ResponseEntity<?> updateFile(@PathVariable("fileId") String fileId,
                                         @RequestParam(value = "file", required = false) MultipartFile file,
                                         @RequestParam(value = "name", required = false) String fileName) {
@@ -76,7 +76,7 @@ public class FileResource {
         }
     }
 
-    @DeleteMapping(value = "/{fileId}", produces = "application/json")
+    @DeleteMapping(value = "/{fileId}")
     public ResponseEntity<?> deleteFile(@PathVariable("fileId") String fileId) {
         try {
             return fileService.delete(fileId);
